@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "973984973689",
+    "project_id": "araccount-user-database",
+    "storage_bucket": "araccount-user-database.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973984973689:android:d771a5f8c810eca1e765a8",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.ARAkuntansiSTAS"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNbj0lpqd37qBeet2VxGDy06jER-9w1aU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

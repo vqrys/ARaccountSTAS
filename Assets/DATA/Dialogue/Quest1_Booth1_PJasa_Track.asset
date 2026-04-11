@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest1_Booth1_PJasa_Track
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 4c651defe95c8d84fb4a437148f8f263, type: 3}
+  cues:
+  - time: 0
+    text: '"Perusahaan jasa tidak menjual barang, tapi menjual keahlian atau layanan."'
+  - time: 7.535
+    text: Contohnya salon, bengkel, studio foto, konsultan, atau penyedia kursus.
+  - time: 10.565
+    text: Pendapatannya berasal dari layanan yang diberikan kepada pelanggan.
+  - time: 14.8
+    text: informasi keuangan agar dapat digunakan dalam pengambilan keputusan
+  - time: 23
+    text: Dalam akuntansi perusahaan jasa, biasanya tidak ada persediaan barang.

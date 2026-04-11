@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest1_Booth3_PManufaktur_Track
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: a1c405b2d5a3b8a468cd4d921b3abeb7, type: 3}
+  cues:
+  - time: 0
+    text: '"Perusahaan manufaktur mengolah bahan baku menjadi barang jadi."'
+  - time: 5.545
+    text: '"Contohnya pabrik roti, pabrik sepatu, pabrik elektronik."'
+  - time: 13.155
+    text: "\"Ada proses produksi: bahan baku \u2192 barang dalam proses \u2192 barang
+      jadi.\""
+  - time: 22
+    text: '"Akuntansi manufaktur lebih kompleks karena melibatkan biaya produksi."'

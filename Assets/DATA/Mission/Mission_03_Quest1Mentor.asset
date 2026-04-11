@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
+  m_Name: Mission_03_Quest1Mentor
+  m_EditorClassIdentifier: 
+  missionId: Mission_03_Quest1Mentor
+  missionTitle: Quest 1 - Mentor
+  missionDescription: Yuk, belajar dasar akuntansi dari Mentor.
+  mentorDialogue: {fileID: 11400000, guid: b0942b36bdd2c93448ed4d28311dbf8a, type: 2}
+  objectives:
+  - objectiveId: q1_quiz_mentor
+    objectiveName: Kerjakan Quiz dari Mentor
+    useCounter: 0
+    targetCount: 1
+  - objectiveId: q1_materi_mentor
+    objectiveName: Kerjakan Materi dari Mentor
+    useCounter: 0
+    targetCount: 1
+  nextMission: {fileID: 11400000}

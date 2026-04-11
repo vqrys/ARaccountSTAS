@@ -1,0 +1,12 @@
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\bin\Release\net6.0\linux-x64\ARaccountCloud.deps.json
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\bin\Release\net6.0\linux-x64\ARaccountCloud.dll
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\bin\Release\net6.0\linux-x64\ARaccountCloud.pdb
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ARaccountCloud.csproj.AssemblyReference.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ARaccountCloud.GeneratedMSBuildEditorConfig.editorconfig
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ARaccountCloud.AssemblyInfoInputs.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ARaccountCloud.AssemblyInfo.cs
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ARaccountCloud.csproj.CoreCompileInputs.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ARaccountCloud.dll
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\refint\ARaccountCloud.dll
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ARaccountCloud.pdb
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Release\net6.0\linux-x64\ref\ARaccountCloud.dll

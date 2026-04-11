@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Mentor_TutorialMateri_Track
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 3bd84b37d63966a4c9f6f661c5b03a5f, type: 3}
+  objectiveIdToComplete: tut_quest
+  cues:
+  - time: 0
+    text: '"Bagus sekali! Sekarang kita masuk ke mode Realitas Tertambah (AR)."'
+  - time: 4.965
+    text: '"Siapkan Kartu Quest 1 dan arahkan kamera HP-mu ke target marker."'
+  - time: 10.545
+    text: '"Aku akan muncul di sana untuk mengajarimu materi pertama!"'

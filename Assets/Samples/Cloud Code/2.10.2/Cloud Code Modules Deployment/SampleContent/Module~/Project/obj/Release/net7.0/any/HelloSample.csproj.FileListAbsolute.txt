@@ -1,0 +1,12 @@
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\bin\Release\net7.0\any\HelloSample.deps.json
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\bin\Release\net7.0\any\HelloSample.dll
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\bin\Release\net7.0\any\HelloSample.pdb
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\HelloSample.csproj.AssemblyReference.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\HelloSample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\HelloSample.AssemblyInfoInputs.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\HelloSample.AssemblyInfo.cs
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\HelloSample.csproj.CoreCompileInputs.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\HelloSample.dll
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\refint\HelloSample.dll
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\HelloSample.pdb
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\Assets\Samples\Cloud Code\2.10.2\Cloud Code Modules Deployment\SampleContent\Module~\Project\obj\Release\net7.0\any\ref\HelloSample.dll

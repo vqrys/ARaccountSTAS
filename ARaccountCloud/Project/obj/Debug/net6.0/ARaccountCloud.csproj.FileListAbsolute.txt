@@ -1,0 +1,5 @@
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Debug\net6.0\ARaccountCloud.csproj.AssemblyReference.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Debug\net6.0\ARaccountCloud.GeneratedMSBuildEditorConfig.editorconfig
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Debug\net6.0\ARaccountCloud.AssemblyInfoInputs.cache
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Debug\net6.0\ARaccountCloud.AssemblyInfo.cs
+C:\Alfikri Files\Magang\Unity\Projects Save\ARaccountSTAS\ARaccountCloud\Project\obj\Debug\net6.0\ARaccountCloud.csproj.CoreCompileInputs.cache

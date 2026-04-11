@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
+  m_Name: Mission_02_Materi
+  m_EditorClassIdentifier: 
+  missionId: Mission_02_Materi
+  missionTitle: Mentor - Materi
+  missionDescription: Ikuti misinya buat mulai AR.
+  mentorDialogue: {fileID: 0}
+  objectives:
+  - objectiveId: arah_kamera_mentor
+    objectiveName: Arahkan Camera ke Mentor
+    useCounter: 0
+    targetCount: 1
+  - objectiveId: scan_kartu_1
+    objectiveName: Scan kartu Quest 1
+    useCounter: 0
+    targetCount: 1
+  nextMission: {fileID: 11400000, guid: a63cbade4b9019943862a9a3fd6c2515, type: 2}

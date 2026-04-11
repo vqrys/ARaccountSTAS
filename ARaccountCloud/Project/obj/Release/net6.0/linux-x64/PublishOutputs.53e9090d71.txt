@@ -1,0 +1,13 @@
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\ARaccountCloud.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\ARaccountCloud.deps.json
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\ARaccountCloud.pdb
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Unity.Services.CloudCode.Apis.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Unity.Services.CloudCode.Core.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Google.Protobuf.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Grpc.Core.Api.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Grpc.Net.Client.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Grpc.Net.Common.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\JsonSubTypes.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation\Newtonsoft.Json.dll

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Mentor_Greetings_Track
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: c9a52e946688a284c89adc446aa96466, type: 3}
+  objectiveIdToComplete: tut_pendahuluan
+  cues:
+  - time: 0
+    text: '"Selamat datang di Academy of Accountancy!"'
+  - time: 3.528
+    text: '"Aku akan mengajari kamu Akuntansi dengan cara yang seru '
+  - time: 7.352
+    text: menggunakan Realitas Tertambah (AR)."
+  - time: 9.9
+    text: '"Perkenalkan, aku adalah mentormu. Aku akan menemanimu dari awal '
+  - time: 15.3
+    text: sampai kamu jadi ahli laporan keuangan!"
+  - time: 18.765
+    text: 'Untuk sekarang, coba lihat menu di layar. '
+  - time: 21.9
+    text: Mari kita mulai perjalananmu dengan menekan tombol Quest 1!

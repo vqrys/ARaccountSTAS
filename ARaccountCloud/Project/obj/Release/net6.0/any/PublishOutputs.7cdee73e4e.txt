@@ -1,0 +1,13 @@
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\ARaccountCloud.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\ARaccountCloud.deps.json
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\ARaccountCloud.pdb
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Unity.Services.CloudCode.Apis.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Unity.Services.CloudCode.Core.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Google.Protobuf.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Grpc.Core.Api.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Grpc.Net.Client.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Grpc.Net.Common.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\JsonSubTypes.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Lenovo\AppData\Local\Temp\ARaccountCloud\module-compilation-cross-platform\Newtonsoft.Json.dll
