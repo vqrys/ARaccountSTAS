@@ -102,10 +102,11 @@ public class MissionUIController : MonoBehaviour
 
     private void ClearObjectives()
     {
-        foreach (var ui in spawnedObjectives)
+        // Memaksa hancurkan SEMUA objek yang ada di dalam container
+        // (Termasuk prefab dummy yang mungkin kamu buat manual di Editor)
+        foreach (Transform child in objectiveContainer)
         {
-            if (ui != null)
-                Destroy(ui.gameObject);
+            Destroy(child.gameObject);
         }
 
         spawnedObjectives.Clear();

@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events; 
 
+// --- KELAS BARU UNTUK EVENT SPESIFIK ---
+[System.Serializable]
+public class SpecificTrackEvent
+{
+    [Tooltip("Pilih Track spesifik yang ingin dipantau")]
+    public RaccoonSubtitleTrack track;
+    
+    [Tooltip("Event ini HANYA dipanggil saat track MULAI dimainkan (Cocok untuk Trigger Animasi Buka)")]
+    public UnityEvent onThisTrackStart;
+
+    [Tooltip("Event ini HANYA dipanggil jika track SELESAI atau DI-SKIP (Cocok untuk Trigger Animasi Tutup)")]
+    public UnityEvent onThisTrackEnd;
+}
+
 [RequireComponent(typeof(RaccoonAnimator))]
 [RequireComponent(typeof(RaccoonSubtitlePlayer))]
 [RequireComponent(typeof(AudioSource))]
@@ -11,8 +25,12 @@ public class RaccoonSpeaker : MonoBehaviour
     [Header("Speech Tracks")]
     public List<RaccoonSubtitleTrack> speechTracks = new List<RaccoonSubtitleTrack>(); 
 
-    [Header("Events")]
-    [Tooltip("Event ini akan terpanggil otomatis saat audio dan subtitle selesai dimainkan.")]
+    [Header("Specific Events (Per-Track)")]
+    [Tooltip("Tambahkan event di sini jika kamu ingin sesuatu terjadi HANYA saat track tertentu dimulai atau selesai.")]
+    public List<SpecificTrackEvent> specificTrackEvents = new List<SpecificTrackEvent>();
+
+    [Header("Global Events")]
+    [Tooltip("Event umum yang terpanggil SETIAP KALI audio apapun selesai (Cocok untuk memunculkan Tombol Replay).")]
     public UnityEvent onSpeechEnd; 
 
     private RaccoonAnimator _animator;
@@ -20,7 +38,6 @@ public class RaccoonSpeaker : MonoBehaviour
     private AudioSource _audioSource;
     private Coroutine _speechCoroutine;
     
-    // Variabel baru untuk merekam dialog terakhir (Untuk fitur Replay)
     private RaccoonSubtitleTrack _lastPlayedTrack;
 
     private void Awake()
@@ -48,13 +65,15 @@ public class RaccoonSpeaker : MonoBehaviour
             return;
         }
 
-        _lastPlayedTrack = track; // Simpan ke memori untuk di-replay nanti
-        StopSpeech();
+        _lastPlayedTrack = track;
+        StopSpeech(); 
         
+        // PANGGIL EVENT START (Untuk Animasi Masuk, dipanggil juga saat Replay!)
+        TriggerSpecificStartEvents(track);
+
         _speechCoroutine = StartCoroutine(SpeechRoutine(track));
     }
 
-    // FUNGSI BARU: Untuk memutar ulang percakapan terakhir
     public void ReplayLastSpeech()
     {
         if (_lastPlayedTrack != null)
@@ -77,18 +96,16 @@ public class RaccoonSpeaker : MonoBehaviour
         _subtitlePlayer.Hide();
     }
 
-    // FUNGSI BARU: Untuk dihubungkan ke Tombol "Skip" di UI
     public void SkipSpeech()
     {
-        // Cegah skip jika raccoon sedang tidak berbicara
         if (_speechCoroutine == null) return; 
 
-        // Hentikan paksa audio, animasi, dan subtitle
         StopSpeech();
-
-        Debug.Log("[RaccoonSpeaker] Dialog di-skip!");
+        CompleteTrackMission(_lastPlayedTrack);
         
-        // PAKSA panggil event OnSpeechEnd agar Misi tetap selesai/berlanjut!
+        // Panggil event END spesifik (Untuk menutup animasi seketika saat di-skip)
+        TriggerSpecificEndEvents(_lastPlayedTrack); 
+        
         onSpeechEnd?.Invoke();
     }
 
@@ -105,9 +122,59 @@ public class RaccoonSpeaker : MonoBehaviour
         yield return _subtitlePlayer.RunSubtitles(track, _audioSource);
 
         yield return new WaitForSeconds(_subtitlePlayer.lingerTime);
+        
         StopSpeech();
 
-        // PANGGIL EVENT SAAT SEMUANYA SELESAI SECARA NORMAL
+        // 1. OTOMATIS TAMATKAN MISI
+        CompleteTrackMission(track);
+
+        // 2. PANGGIL EVENT END SPESIFIK (Hanya untuk track ini)
+        TriggerSpecificEndEvents(track);
+
+        // 3. PANGGIL EVENT UMUM (Untuk memunculkan Replay dll)
         onSpeechEnd?.Invoke();
+    }
+
+    // Fungsi internal untuk lapor ke Mission System
+    private void CompleteTrackMission(RaccoonSubtitleTrack track)
+    {
+        if (track != null && !string.IsNullOrEmpty(track.objectiveIdToComplete))
+        {
+            if (MissionSystem.Instance != null)
+            {
+                MissionSystem.Instance.CompleteObjectiveById(track.objectiveIdToComplete);
+                Debug.Log($"[RaccoonSpeaker] Otomatis menyelesaikan objektif: {track.objectiveIdToComplete}");
+            }
+        }
+    }
+
+    // Fungsi internal untuk memanggil event START
+    private void TriggerSpecificStartEvents(RaccoonSubtitleTrack track)
+    {
+        if (track == null) return;
+
+        foreach (var specificEvent in specificTrackEvents)
+        {
+            if (specificEvent.track == track)
+            {
+                specificEvent.onThisTrackStart?.Invoke();
+                Debug.Log($"[RaccoonSpeaker] Memanggil Event Start Spesifik untuk track: {track.name}");
+            }
+        }
+    }
+
+    // Fungsi internal untuk memanggil event END
+    private void TriggerSpecificEndEvents(RaccoonSubtitleTrack track)
+    {
+        if (track == null) return;
+
+        foreach (var specificEvent in specificTrackEvents)
+        {
+            if (specificEvent.track == track)
+            {
+                specificEvent.onThisTrackEnd?.Invoke();
+                Debug.Log($"[RaccoonSpeaker] Memanggil Event End Spesifik untuk track: {track.name}");
+            }
+        }
     }
 }

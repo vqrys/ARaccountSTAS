@@ -2,31 +2,49 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+[RequireComponent(typeof(Button))]
 public class SpeechButtonHider : MonoBehaviour
 {
+    [Tooltip("ID Objektif yang akan dicek. Jika sudah tamat, tombol ini akan mati permanen.")]
     public string objectiveIdToCheck;
+    
     private Button _button;
+    private bool _isPermanentlyDisabled = false; // Penanda (flag) memori lokal
 
     private void Awake()
     {
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(HideButton);
+        _button.onClick.AddListener(OnButtonClicked);
     }
 
     private void OnEnable()
     {
-        StartCoroutine(WaitAndCheck());
+        // LAPISAN KEAMANAN 1: Jika sudah ditandai mati, langsung sembunyikan tanpa mengecek sistem lagi.
+        if (_isPermanentlyDisabled)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
+        // LAPISAN KEAMANAN 2: Pengecekan instan tanpa jeda (Coroutine) jika MissionSystem sudah siap.
+        if (MissionSystem.Instance != null && MissionSystem.Instance.IsInitialized)
+        {
+            CheckProgress();
+        }
+        else
+        {
+            // Hanya gunakan Coroutine jika sistem benar-benar sedang loading (awal scene)
+            StartCoroutine(WaitAndCheck());
+        }
     }
 
     private IEnumerator WaitAndCheck()
     {
-        // TUNGGU: Selama MissionSystem belum ada atau belum selesai download data...
         while (MissionSystem.Instance == null || !MissionSystem.Instance.IsInitialized)
         {
-            yield return null; // Tunggu ke frame berikutnya
+            yield return null; 
         }
 
-        // Jika sudah sampai sini, berarti data Cloud sudah pasti masuk ke memori
         CheckProgress();
     }
 
@@ -36,28 +54,29 @@ public class SpeechButtonHider : MonoBehaviour
 
         if (MissionSystem.Instance.IsObjectiveCompleted(objectiveIdToCheck))
         {
-            Debug.Log($"[SpeechButtonHider] {gameObject.name} disembunyikan karena {objectiveIdToCheck} sudah tamat.");
-            gameObject.SetActive(false);
+            Debug.Log($"[SpeechButtonHider] Objektif '{objectiveIdToCheck}' sudah selesai. Mematikan tombol '{gameObject.name}' secara permanen.");
+            DisableAndHide();
         }
     }
 
-    private void HideButton()
+    private void OnButtonClicked()
     {
+        // Saat diklik pertama kali, langsung kunci tombolnya agar tidak bisa dispam atau dipanggil ulang
+        DisableAndHide();
+    }
+
+    // Fungsi utama untuk mengunci dan menyembunyikan tombol
+    private void DisableAndHide()
+    {
+        _isPermanentlyDisabled = true;
+        
+        // LAPISAN KEAMANAN 3: Matikan fungsi interaksi tombol. 
+        // Meskipun objek ini di-SetActive(true) oleh skrip lain, tombol tidak akan merespons klik.
+        if (_button != null)
+        {
+            _button.interactable = false; 
+        }
+        
         gameObject.SetActive(false);
     }
 }
-// ```
-
-// ### Mengapa ini terjadi? (Visualisasi Alur)
-// Pahami urutan kejadian di bawah ini untuk melihat di mana letak kesalahannya sebelumnya:
-
-
-
-// ```json?chameleon
-// {
-//   "component": "LlmGeneratedComponent",
-//   "props": {
-//     "height": "400px",
-//     "prompt": "Create a sequence flow visualizer for Unity Cloud Save initialization. \n1. Process A (MissionSystem): Starts Loading -> Awaiting Cloud Response (1-2s) -> Finish Loading.\n2. Process B (UI Button): Start -> Wait 0.2s -> Check Progress -> Data Not Ready (Fail).\n3. Goal: Show that Process B must wait for Process A to reach 'Finish' state. \nUse labels like 'Cloud Service', 'MissionSystem', and 'UI Button'. Distinguish between the 'Old Way' (Timer) and 'New Way' (Status Check)."
-//   }
-// }

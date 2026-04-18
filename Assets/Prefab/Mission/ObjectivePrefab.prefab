@@ -37,11 +37,11 @@ RectTransform:
   - {fileID: 6871215895213417402}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 157.5, y: -49.495}
-  m_SizeDelta: {x: 200, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -412.40796, y: 0}
+  m_SizeDelta: {x: 459.184, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7283927697511497966
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Arahkan Camerawdawdawdawdawdawdawdawd
+  m_text: 'Kerjakan Materi & Quiz pada Papan '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e24b48f21814f2d49b5840cb9311aab0, type: 2}
   m_sharedMaterial: {fileID: 4706788812179809633, guid: e24b48f21814f2d49b5840cb9311aab0, type: 2}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -238.75052, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -232,9 +232,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6661145010930860078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -32.2, y: -20.1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -33.499985, y: -0.20000076}
   m_SizeDelta: {x: 75.1939, y: 68.8648}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1034436522418341618
@@ -307,9 +307,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6661145010930860078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -32.199997, y: -20.099874}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -33.499985, y: -0.19995117}
   m_SizeDelta: {x: 75.1939, y: 68.8648}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4815324081067350956

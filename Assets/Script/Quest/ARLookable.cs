@@ -21,18 +21,28 @@ public class ARLookable : MonoBehaviour
     }
 
     // Fungsi untuk mengecek apakah objek ini sedang dikunci oleh sistem Misi
-    private bool IsLockedByMission()
+     private bool IsLockedByMission()
     {
         // Jika dikosongkan, berarti objek ini bebas di-scan kapan saja
         if (string.IsNullOrEmpty(requiredMissionId)) return false; 
 
-        // Cek menggunakan referensi _missionSystem yang sudah ditemukan di Start()
-        if (_missionSystem != null && _missionSystem.CurrentMission != null)
+        if (_missionSystem != null)
         {
-            return _missionSystem.CurrentMission.missionId != requiredMissionId;
+            // BUKA KUNCI JIKA: Misi saat ini adalah misi yang diminta (sedang dikerjakan)
+            if (_missionSystem.CurrentMission != null && _missionSystem.CurrentMission.missionId == requiredMissionId)
+            {
+                return false;
+            }
+
+            // BUKA KUNCI JIKA: Misi tersebut sudah pernah diselesaikan (sudah lewat / progress lanjut)
+            if (_missionSystem.IsMissionCompleted(requiredMissionId))
+            {
+                return false;
+            }
         }
         
-        return true; // Jika MissionSystem belum siap, kunci dulu untuk amannya
+        // Jika misi belum tercapai atau MissionSystem belum siap, kunci objeknya
+        return true; 
     }
 
     public void OnLookEnter()

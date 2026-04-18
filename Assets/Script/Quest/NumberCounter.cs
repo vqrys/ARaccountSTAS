@@ -9,24 +9,26 @@ public class NumberCounter : MonoBehaviour
     public int CountFPS = 30;
     public float Duration = 1f;
     public string NumberFormat = "N0";
+    
     private int _value;
     public int Value
     {
-        get
-        {
-            return _value;
-        }
+        get { return _value; }
         set
         {
             UpdateText(value);
             _value = value;
         }
     }
+    
     private Coroutine CountingCoroutine;
 
     private void Awake()
     {
         Text = GetComponent<TextMeshProUGUI>();
+        
+        // Pastikan teks tidak blank saat game baru mulai
+        if (Text != null) Text.text = "0"; 
     }
 
     private void UpdateText(int newValue)
@@ -41,17 +43,25 @@ public class NumberCounter : MonoBehaviour
 
     private IEnumerator CountText(int newValue)
     {
+        // --- PERBAIKAN BUG ---
+        // Jika angka awal dan target sama (misal 0 ke 0), langsung tulis teksnya dan hentikan!
+        if (_value == newValue)
+        {
+            if (Text != null) Text.SetText(newValue.ToString(NumberFormat));
+            yield break; 
+        }
+
         WaitForSeconds Wait = new WaitForSeconds(1f / CountFPS);
         int previousValue = _value;
         int stepAmount;
 
         if (newValue - previousValue < 0)
         {
-            stepAmount = Mathf.FloorToInt((newValue - previousValue) / (CountFPS * Duration)); // newValue = -20, previousValue = 0. CountFPS = 30, and Duration = 1; (-20- 0) / (30*1) // -0.66667 (ceiltoint)-> 0
+            stepAmount = Mathf.FloorToInt((newValue - previousValue) / (CountFPS * Duration)); 
         }
         else
         {
-            stepAmount = Mathf.CeilToInt((newValue - previousValue) / (CountFPS * Duration)); // newValue = 20, previousValue = 0. CountFPS = 30, and Duration = 1; (20- 0) / (30*1) // 0.66667 (floortoint)-> 0
+            stepAmount = Mathf.CeilToInt((newValue - previousValue) / (CountFPS * Duration)); 
         }
 
         if (previousValue < newValue)
@@ -59,13 +69,9 @@ public class NumberCounter : MonoBehaviour
             while(previousValue < newValue)
             {
                 previousValue += stepAmount;
-                if (previousValue > newValue)
-                {
-                    previousValue = newValue;
-                }
+                if (previousValue > newValue) previousValue = newValue;
 
-                Text.SetText(previousValue.ToString(NumberFormat));
-
+                if (Text != null) Text.SetText(previousValue.ToString(NumberFormat));
                 yield return Wait;
             }
         }
@@ -73,14 +79,10 @@ public class NumberCounter : MonoBehaviour
         {
             while (previousValue > newValue)
             {
-                previousValue += stepAmount; // (-20 - 0) / (30 * 1) = -0.66667 -> -1              0 + -1 = -1
-                if (previousValue < newValue)
-                {
-                    previousValue = newValue;
-                }
+                previousValue += stepAmount; 
+                if (previousValue < newValue) previousValue = newValue;
 
-                Text.SetText(previousValue.ToString(NumberFormat));
-
+                if (Text != null) Text.SetText(previousValue.ToString(NumberFormat));
                 yield return Wait;
             }
         }

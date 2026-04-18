@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionId: Mission_02_Materi
   missionTitle: Mentor - Materi
-  missionDescription: Ikuti misinya buat mulai AR.
+  missionDescription: Ikuti misinya dan dengarkan penjelasan.
   mentorDialogue: {fileID: 0}
   objectives:
-  - objectiveId: arah_kamera_mentor
-    objectiveName: Arahkan Camera ke Mentor
+  - objectiveId: tutorial_quest_1
+    objectiveName: Tutorial belajar materi Quest 1
     useCounter: 0
     targetCount: 1
   - objectiveId: scan_kartu_1

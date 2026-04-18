@@ -49,7 +49,7 @@ public class QuizManager : MonoBehaviour
 
         if (scorePopup != null) scorePopup.SetActive(false);
 
-        if (scoreCloseButton != null)
+        if (scoreCloseButton != null)   
         {
             scoreCloseButton.onClick.RemoveAllListeners();
             scoreCloseButton.onClick.AddListener(() =>

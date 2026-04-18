@@ -20,8 +20,12 @@ MonoBehaviour:
 '
   mentorDialogue: {fileID: 0}
   objectives:
-  - objectiveId: q1_booth_materi
-    objectiveName: Baca Stan Materi
+  - objectiveId: q1_booth_quiz_terakhir
+    objectiveName: Kerjakan Quiz terakhir
+    useCounter: 0
+    targetCount: 1
+  - objectiveId: q1_booth_baru
+    objectiveName: Kerjakan setiap Stan Materi
     useCounter: 1
     targetCount: 3
   - objectiveId: q1_arah_perusahaan

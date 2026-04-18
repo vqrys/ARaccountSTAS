@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement; 
-using Unity.Services.Authentication; // TAMBAHAN PENTING UNTUK CEK LOGIN
+using Unity.Services.Authentication; 
 
 public class MissionSystem : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class MissionSystem : MonoBehaviour
     private Dictionary<string, int> objectiveProgress = new Dictionary<string, int>();
 
     private bool _isInitialized = false;
-    public bool IsInitialized => _isInitialized; // Properti untuk dicek oleh skrip lain
+    public bool IsInitialized => _isInitialized; 
 
     public MissionData CurrentMission => currentMission;
 
@@ -78,14 +78,21 @@ public class MissionSystem : MonoBehaviour
         }
     }
 
-    async void Start()
+    public void ResetSystem()
+    {
+        _isInitialized = false;
+        playerProgress = new PlayerProgressData();
+        objectiveProgress.Clear();
+        currentMission = null;
+        Debug.Log("[MissionSystem] Memori lokal berhasil di-reset (Kosong).");
+    }
+
+    public async void InitializeSystemAsync()
     {
         if (_isInitialized) return; 
 
-        // --- PERBAIKAN KRUSIAL: TUNGGU SAMPAI PLAYER SELESAI LOGIN ---
         while (!UGSBootstrap.IsInitialized || !AuthenticationService.Instance.IsSignedIn)
         {
-            // Menunggu 0.1 detik berulang kali sampai sistem Login selesai (saat Loading Screen)
             await System.Threading.Tasks.Task.Delay(100); 
         }
 
@@ -109,8 +116,13 @@ public class MissionSystem : MonoBehaviour
             }
         }
 
-        _isInitialized = true; // Tandai bahwa MissionSystem sudah 100% siap dipakai skrip lain!
+        _isInitialized = true; 
         StartMission(missionToLoad, true);
+    }
+
+    void Start()
+    {
+        InitializeSystemAsync();
     }
 
     public void StartMission(MissionData mission, bool instantUI = false)
@@ -124,28 +136,29 @@ public class MissionSystem : MonoBehaviour
         playerProgress.currentMissionId = currentMission.missionId;
         objectiveProgress.Clear();
 
-        if (currentMission.objectives != null)
-        {
-            foreach (var obj in currentMission.objectives)
-            {
-                if (obj.useCounter) objectiveProgress[obj.objectiveId] = 0;
-                
-                if (playerProgress.completedObjectives.Contains(obj.objectiveId) && instantUI && missionUI != null)
-                {
-                    missionUI.CompleteObjectiveUI(obj.objectiveId);
-                }
-            }
-        }
-
+        // TAHAP 1: Konstruksi Antarmuka Pengguna (UI)
+        // Fungsi ini harus dijalankan terlebih dahulu untuk menciptakan prefab objektif di layar.
         if (missionUI != null)
         {
             if (instantUI) missionUI.ShowMissionInstant(mission);
             else missionUI.TransitionToMission(mission);
         }
 
-        if (currentMission.mentorDialogue != null && mentorSpeaker != null)
+        // TAHAP 2: Pembaruan Status Visual (Ceklis)
+        // Setelah elemen UI tersedia, sistem baru dapat menyisir data yang sudah dimuat dari Cloud.
+        if (currentMission.objectives != null)
         {
-            mentorSpeaker.StartSpeech(currentMission.mentorDialogue);
+            foreach (var obj in currentMission.objectives)
+            {
+                if (obj.useCounter) objectiveProgress[obj.objectiveId] = 0;
+                
+                // Verifikasi apakah ID objektif ada dalam daftar progres yang dimuat dari Cloud Save.
+                if (playerProgress.completedObjectives.Contains(obj.objectiveId) && missionUI != null)
+                {
+                    // Eksekusi pembaruan visual ceklis pada UI.
+                    missionUI.CompleteObjectiveUI(obj.objectiveId);
+                }
+            }
         }
 
         Debug.Log("Mission started: " + mission.missionTitle);
@@ -220,6 +233,12 @@ public class MissionSystem : MonoBehaviour
             if (!playerProgress.completedObjectives.Contains(obj.objectiveId)) return false;
         }
         return true;
+    }
+
+    // FUNGSI BARU: Mengecek apakah sebuah misi sudah pernah diselesaikan sebelumnya
+    public bool IsMissionCompleted(string missionId)
+    {
+        return playerProgress.completedMissions.Contains(missionId);
     }
 
     private MissionObjectiveData GetObjectiveData(string objectiveId)

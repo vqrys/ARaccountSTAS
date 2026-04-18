@@ -134,7 +134,6 @@ public class AuthManager : MonoBehaviour
                 {
                     SceneTransitionManager.Instance.HideLoadingScreen();
                 }
-                return;
             }
 
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
@@ -154,6 +153,12 @@ public class AuthManager : MonoBehaviour
     private void HandleLoginSuccess()
     {
         OnSignedIn?.Invoke();
+
+        // SURUH MISSION SYSTEM MEMUAT ULANG DATA DARI AWAL
+        if (MissionSystem.Instance != null)
+        {
+            MissionSystem.Instance.InitializeSystemAsync();
+        }
 
         if (SceneTransitionManager.Instance != null)
         {
@@ -179,6 +184,12 @@ public class AuthManager : MonoBehaviour
             }
 
             Debug.Log("[AuthManager] Signed out.");
+
+            // BERSIHKAN RAM MISSION SYSTEM
+            if (MissionSystem.Instance != null)
+            {
+                MissionSystem.Instance.ResetSystem();
+            }
         }
         catch (Exception ex)
         {
@@ -252,6 +263,12 @@ public class AuthManager : MonoBehaviour
             AuthenticationService.Instance.ClearSessionToken();
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
+
+            // BERSIHKAN RAM MISSION SYSTEM SAAT HAPUS AKUN
+            if (MissionSystem.Instance != null)
+            {
+                MissionSystem.Instance.ResetSystem();
+            }
 
             if (SceneTransitionManager.Instance != null)
             {

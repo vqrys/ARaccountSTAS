@@ -15,7 +15,7 @@ MonoBehaviour:
   missionId: Mission_04_Quest1PapanInformasi
   missionTitle: Quest 1 - Papan Informasi
   missionDescription: Ikuti Misinya.
-  mentorDialogue: {fileID: 11400000, guid: cf0ddd58759363f41b42b9f7c3837b91, type: 2}
+  mentorDialogue: {fileID: 0}
   objectives:
   - objectiveId: q1_quiz_mading
     objectiveName: Kerjakan Materi & Quiz pada Papan Informasi
