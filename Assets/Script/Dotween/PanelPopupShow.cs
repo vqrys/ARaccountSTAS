@@ -18,26 +18,26 @@ public class PanelPopupShow : MonoBehaviour
     public Ease openEase = Ease.OutBack;
     public Ease closeEase = Ease.InBack;
 
-    // private bool isOpen = false;
+    // private bool isOpen = true;
 
     void Start()
     {
         rectPanel.anchoredPosition = shownPosition;
 
         overlayCanvasGroup.alpha = 1f;
-        overlayCanvasGroup.interactable = false;
-        overlayCanvasGroup.blocksRaycasts = false;
+        overlayCanvasGroup.interactable = true;
+        overlayCanvasGroup.blocksRaycasts = true;
 
-        // gameObjectPanel.SetActive(false);
+        gameObjectPanel.SetActive(true);
     }
 
-    public void OpenPopupShow()
+    public void OpenPopup()
     {
         // if (isOpen) return;
 
         gameObjectPanel.SetActive(true);
 
-        // rectPanel.DOKill();
+        rectPanel.DOKill();
         overlayCanvasGroup.DOKill();
 
         overlayCanvasGroup.interactable = true;
@@ -50,11 +50,11 @@ public class PanelPopupShow : MonoBehaviour
         // isOpen = true;
     }
 
-    public void ClosePopupShow()
+    public void ClosePopup()
     {
         // if (!isOpen) return;
-    
-        // rectPanel.DOKill();
+
+        rectPanel.DOKill();
         overlayCanvasGroup.DOKill();
 
         Sequence seq = DOTween.Sequence();

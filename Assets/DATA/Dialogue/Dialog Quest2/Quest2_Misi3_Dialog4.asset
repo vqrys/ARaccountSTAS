@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest2_Misi3_Dialog4
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: f555cc85f4c5fb747bd5998b33042e78, type: 3}
+  objectiveIdToComplete: 
+  cues:
+  - time: 0
+    text: "\u201CSetiap transaksi pasti memengaruhi minimal "
+  - time: 3.255
+    text: "dua sisi agar keseimbangan tetap terjaga.\u201D"

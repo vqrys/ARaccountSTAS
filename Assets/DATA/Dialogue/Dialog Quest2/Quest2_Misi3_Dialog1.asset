@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest2_Misi3_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 0e0a47c487880f545abac3b43c3e29e3, type: 3}
+  objectiveIdToComplete: 
+  cues:
+  - time: 0
+    text: "\u201CSelamat. Sekarang kamu sudah memahami bagaimana akun diklasifikasikan.\u201D "
+  - time: 5.798
+    text: "\u201CNamun dalam praktiknya, nilai aset, kewajiban, dan ekuitas tidak
+      tetap. "
+  - time: 12
+    text: "Mereka akan berubah setiap kali terjadi transaksi.\u201D "
+  - time: 15.6
+    text: "\u201CYang harus kamu jaga adalah keseimbangan, meskipun angkanya berubah.\u201D"

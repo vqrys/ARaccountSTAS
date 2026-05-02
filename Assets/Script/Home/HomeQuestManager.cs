@@ -48,7 +48,6 @@ public class HomeQuestManager : MonoBehaviour
 
     private async Task RefreshQuestUIAsync()
     {
-        // --- PERBAIKAN: Tunggu sampai MissionSystem selesai Download dari Cloud ---
         while (MissionSystem.Instance != null && !MissionSystem.Instance.IsInitialized)
         {
             await Task.Delay(100);
@@ -82,10 +81,19 @@ public class HomeQuestManager : MonoBehaviour
             {
                 string previousQuestFinalId = questConfigs[i - 1].finalMissionId;
                 
-                if (!string.IsNullOrEmpty(previousQuestFinalId) && 
-                    progress != null && progress.completedMissions != null && progress.completedMissions.Contains(previousQuestFinalId))
+                if (!string.IsNullOrEmpty(previousQuestFinalId))
                 {
-                    isUnlocked = true;
+                    // PERBAIKAN: Selalu cek memori lokal dari MissionSystem terlebih dahulu agar Bypass berefek instan!
+                    if (MissionSystem.Instance != null)
+                    {
+                        isUnlocked = MissionSystem.Instance.IsMissionCompleted(previousQuestFinalId);
+                    }
+                    
+                    // Jika di memori lokal belum tamat, baru jadikan hasil unduhan Cloud sebagai backup
+                    if (!isUnlocked && progress != null && progress.completedMissions != null)
+                    {
+                        isUnlocked = progress.completedMissions.Contains(previousQuestFinalId);
+                    }
                 }
             }
 

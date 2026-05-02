@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
+  m_Name: Mission_01_Quest3IdentifikasiTransaksi
+  m_EditorClassIdentifier: 
+  missionId: Mission_01_Quest3IdentifikasiTransaksi
+  missionTitle: Quest 3 - Identifikasi Transaksi
+  missionDescription: Kerjakan Misinya.
+  mentorDialogue: {fileID: 0}
+  objectives:
+  - objectiveId: q2_arah_mentor
+    objectiveName: Arahkan Camera ke Mentor
+    useCounter: 0
+    targetCount: 1
+  - objectiveId: q2_materi_mentor
+    objectiveName: Dengarkan Materi dari Mentor
+    useCounter: 0
+    targetCount: 1
+  nextMission: {fileID: 11400000, guid: 747dfdbfc38d8b348b48d5dbde8e9f23, type: 2}

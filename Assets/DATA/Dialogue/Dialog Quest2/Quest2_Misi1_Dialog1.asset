@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest2_Misi1_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 637f55edcfeda264aa5b5b11f71e6ab5, type: 3}
+  objectiveIdToComplete: 
+  cues:
+  - time: 0
+    text: "\u201CSelamat datang di pelatihan lanjutan. \r\nDi quest ini, "
+  - time: 4.252
+    text: "kamu akan mempelajari Persamaan Dasar Akuntansi.\u201D"
+  - time: 8.432
+    text: "\r\u201CPersamaan dasar akuntansi adalah pondasi utama "
+  - time: 12.08
+    text: dalam pencatatan keuangan."
+  - time: 14.496
+    text: '"Semua transaksi yang terjadi dalam perusahaan '
+  - time: 17.591
+    text: "harus selalu menjaga keseimbangan ini.\u201D "

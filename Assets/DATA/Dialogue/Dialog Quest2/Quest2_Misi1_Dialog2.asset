@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest2_Misi1_Dialog2
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 40e7504bbc2bb6444b38748433146262, type: 3}
+  objectiveIdToComplete: 
+  cues:
+  - time: 0
+    text: "\u201CAset adalah sumber daya yang dimiliki perusahaan. \r\n"
+  - time: 3.997
+    text: 'Kewajiban adalah kewajiban atau utang perusahaan kepada pihak lain. '
+  - time: 10.118
+    text: "Ekuitas adalah hak pemilik terhadap aset perusahaan.\u201D"
+  - time: 15.4
+    text: '"Jika perusahaan memiliki aset, pasti sumber perolehannya'
+  - time: 19.9
+    text: 'berasal dari dua tempat yaitu: '
+  - time: 23.046
+    text: "dari pinjaman (kewajiban) atau dari pemilik (ekuitas).\u201D "
+  - time: 29.597
+    text: "\u201CIngat: persamaan ini harus selalu seimbang."
+  - time: 34.2
+    text: "Jika satu sisi berubah, sisi lainnya juga harus berubah.\u201D "

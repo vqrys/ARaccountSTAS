@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
+  m_Name: Mission_03_Quest2DampakTransaksi
+  m_EditorClassIdentifier: 
+  missionId: Mission_03_Quest2DampakTransaksi
+  missionTitle: Quest 2 - Menjaga Keseimbangan Neraca
+  missionDescription: Kerjakan Misinya.
+  mentorDialogue: {fileID: 0}
+  objectives:
+  - objectiveId: q2_arah_ahlitransaksi
+    objectiveName: Arahkan Camera ke Penjaga Timbangan Neraca
+    useCounter: 0
+    targetCount: 1
+  - objectiveId: q2_quiz_ahlitransaksi
+    objectiveName: Dengarkan Materi dari Penjaga Timbangan Neraca
+    useCounter: 0
+    targetCount: 1
+  nextMission: {fileID: 0}

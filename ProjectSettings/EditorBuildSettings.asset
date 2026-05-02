@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quest1.unity
     guid: 1f4385b4c9fbcc945b8b9ba8e225fd76
+  - enabled: 1
+    path: Assets/Scenes/Quest2.unity
+    guid: dfef028d16603e445ac2116295d18f43
   m_configObjects:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 1e3146bcb4b01204f9e512a1195f9eb2, type: 2}

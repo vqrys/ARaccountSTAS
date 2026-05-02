@@ -102,6 +102,50 @@ public class MissionSystem : MonoBehaviour
             Debug.Log("[MissionSystem] Progres berhasil dimuat dari Cloud setelah Login Siap.");
         }
 
+        // Pastikan memori tidak Null agar aman setelah reset akun
+        if (playerProgress == null) playerProgress = new PlayerProgressData();
+        if (playerProgress.completedMissions == null) playerProgress.completedMissions = new List<string>();
+        if (playerProgress.completedObjectives == null) playerProgress.completedObjectives = new List<string>();
+
+        // ==========================================================
+        // 🛠️ FITUR BARU: AUTO-BYPASS SAAT LOAD GAME
+        // ==========================================================
+        if (!string.IsNullOrEmpty(adminMissionIdToBypass))
+        {
+            bool needsSave = false;
+            
+            // 1. Tamatkan Misi Bypass secara otomatis
+            if (!playerProgress.completedMissions.Contains(adminMissionIdToBypass))
+            {
+                playerProgress.completedMissions.Add(adminMissionIdToBypass);
+                needsSave = true;
+            }
+            
+            // 2. Tamatkan tutorial awal agar UI Home Quest 1 tidak terkunci
+            if (!playerProgress.completedObjectives.Contains("tut_pendahuluan"))
+            {
+                playerProgress.completedObjectives.Add("tut_pendahuluan");
+                needsSave = true;
+            }
+
+            // 3. Lompat langsung menjadikan ini misi target saat ini
+            playerProgress.currentMissionId = adminMissionIdToBypass;
+            needsSave = true;
+
+            // Simpan perubahan ke Cloud
+            if (needsSave && PlayerDataClient.Instance != null)
+            {
+                await PlayerDataClient.Instance.SaveProgressAsync(playerProgress);
+            }
+
+            // Refresh UI Home agar gembok Quest Terbuka
+            HomeQuestManager homeManager = FindObjectOfType<HomeQuestManager>();
+            if (homeManager != null) homeManager.ForceRefreshUI();
+
+            Debug.Log($"[Admin Tool] Auto-Bypass diaktifkan! Melompat ke: {adminMissionIdToBypass}");
+        }
+        // ==========================================================
+
         MissionData missionToLoad = startingMission;
 
         if (playerProgress != null && !string.IsNullOrEmpty(playerProgress.currentMissionId))
@@ -274,5 +318,80 @@ public class MissionSystem : MonoBehaviour
         {
             await PlayerDataClient.Instance.SaveProgressAsync(playerProgress);
         }
+    }
+
+    // =================================================================================
+    // 🛠️ ADMIN / DEVELOPER TOOLS (Untuk Tes Cepat)
+    // =================================================================================
+
+    [Header("🛠️ Admin & Testing Tools")]
+    [Tooltip("Ketik ID misi yang ingin ditamatkan instan (Misal: Mission_05_Quest1JenisPerusahaan)")]
+    public string adminMissionIdToBypass = "Mission_05_Quest1JenisPerusahaan";
+
+    [ContextMenu("🛠️ ADMIN: Tamatkan Misi Ini (Bypass)")]
+    public async void AdminBypassMission()
+    {
+        if (string.IsNullOrEmpty(adminMissionIdToBypass)) return;
+
+        // 1. CEGAH ERROR NULL SETELAH HAPUS AKUN DENGAN MEMBUAT LIST BARU
+        if (playerProgress == null) playerProgress = new PlayerProgressData();
+        if (playerProgress.completedMissions == null) playerProgress.completedMissions = new List<string>();
+        if (playerProgress.completedObjectives == null) playerProgress.completedObjectives = new List<string>();
+
+        bool needsSave = false;
+
+        // 2. Tamatkan misi yang diminta
+        if (!playerProgress.completedMissions.Contains(adminMissionIdToBypass))
+        {
+            playerProgress.completedMissions.Add(adminMissionIdToBypass);
+            needsSave = true;
+        }
+
+        // 3. Wajib tamatkan tutorial awal agar tombol Quest 1 juga ikut terbuka!
+        if (!playerProgress.completedObjectives.Contains("tut_pendahuluan"))
+        {
+            playerProgress.completedObjectives.Add("tut_pendahuluan");
+            needsSave = true;
+        }
+
+        if (needsSave)
+        {
+            Debug.Log($"[Admin Tool] Memproses Bypass untuk: {adminMissionIdToBypass}...");
+
+            if (PlayerDataClient.Instance != null)
+            {
+                await PlayerDataClient.Instance.SaveProgressAsync(playerProgress);
+                await System.Threading.Tasks.Task.Delay(500); // Beri waktu sebentar agar cloud sinkron
+            }
+
+            // Paksa UI Home refresh gemboknya
+            HomeQuestManager homeManager = FindObjectOfType<HomeQuestManager>();
+            if (homeManager != null) homeManager.ForceRefreshUI();
+            
+            Debug.Log($"[Admin Tool] Bypass SUKSES!");
+        }
+        else
+        {
+            Debug.Log($"[Admin Tool] Misi '{adminMissionIdToBypass}' SUDAH TAMAT sebelumnya.");
+        }
+    }
+
+    [ContextMenu("🛠️ ADMIN: Hapus Seluruh Progres (Reset)")]
+    public async void AdminResetAllProgress()
+    {
+        // Pastikan List dibuat baru agar tidak error
+        playerProgress = new PlayerProgressData();
+        playerProgress.completedMissions = new List<string>();
+        playerProgress.completedObjectives = new List<string>();
+        
+        if (PlayerDataClient.Instance != null)
+        {
+            await PlayerDataClient.Instance.SaveProgressAsync(playerProgress);
+        }
+
+        HomeQuestManager homeManager = FindObjectOfType<HomeQuestManager>();
+        if (homeManager != null) homeManager.ForceRefreshUI();
+
+        Debug.Log("[Admin Tool] SELURUH PROGRES TELAH DIHAPUS!");
     }
 }

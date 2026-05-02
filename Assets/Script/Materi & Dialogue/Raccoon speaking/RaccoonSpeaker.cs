@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events; 
 
-// --- KELAS BARU UNTUK EVENT SPESIFIK ---
+// --- KELAS UNTUK EVENT SPESIFIK ---
 [System.Serializable]
 public class SpecificTrackEvent
 {
@@ -30,7 +30,10 @@ public class RaccoonSpeaker : MonoBehaviour
     public List<SpecificTrackEvent> specificTrackEvents = new List<SpecificTrackEvent>();
 
     [Header("Global Events")]
-    [Tooltip("Event umum yang terpanggil SETIAP KALI audio apapun selesai (Cocok untuk memunculkan Tombol Replay).")]
+    [Tooltip("Event umum yang terpanggil SETIAP KALI audio apapun MULAI (Cocok untuk menyembunyikan tombol UI).")]
+    public UnityEvent onSpeechStart; 
+
+    [Tooltip("Event umum yang terpanggil SETIAP KALI audio apapun SELESAI (Cocok untuk memunculkan Tombol Replay).")]
     public UnityEvent onSpeechEnd; 
 
     private RaccoonAnimator _animator;
@@ -68,8 +71,11 @@ public class RaccoonSpeaker : MonoBehaviour
         _lastPlayedTrack = track;
         StopSpeech(); 
         
-        // PANGGIL EVENT START (Untuk Animasi Masuk, dipanggil juga saat Replay!)
+        // PANGGIL EVENT START SPESIFIK (Untuk Animasi Masuk dll)
         TriggerSpecificStartEvents(track);
+
+        // PANGGIL EVENT START GLOBAL
+        onSpeechStart?.Invoke();
 
         _speechCoroutine = StartCoroutine(SpeechRoutine(track));
     }
@@ -106,6 +112,7 @@ public class RaccoonSpeaker : MonoBehaviour
         // Panggil event END spesifik (Untuk menutup animasi seketika saat di-skip)
         TriggerSpecificEndEvents(_lastPlayedTrack); 
         
+        // Panggil event END global
         onSpeechEnd?.Invoke();
     }
 
