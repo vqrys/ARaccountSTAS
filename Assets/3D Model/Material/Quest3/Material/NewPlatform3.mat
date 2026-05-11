@@ -119,7 +119,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EmissionIntensity: 0.06
+    - _EmissionIntensity: 0.19
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -142,6 +142,6 @@ Material:
     - _BaseColor: {r: 0.6830188, g: 0.6830188, b: 0.6830188, a: 1}
     - _Color: {r: 1, g: 0.89434314, b: 0.7176471, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 0.40653196, b: 0.12641507, a: 1}
+    - _RimColor: {r: 1, g: 0.3829173, b: 0.088679194, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

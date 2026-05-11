@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest4_Misi4_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 61430c3ab21869e4faeec11e8895eaf8, type: 3}
+  objectiveIdToComplete: q4_m4_materi
+  cues:
+  - time: 0
+    text: "\u201CSelain sewa, pengeluaran lain yang hampir selalu ada dalam perusahaan
+      jasa adalah <color=orange>beban listrik</color>. "
+  - time: 6.545
+    text: "\u201CKarena dibayar tunai, akun Kas kembali berkurang.\u201D "

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest4_Misi7_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 3b2a2f903bd4de144a57e5503efd2e38, type: 3}
+  objectiveIdToComplete: q4_m7_materi
+  cues:
+  - time: 0
+    text: "\u201CSelain perlengkapan, perusahaan jasa biasanya membutuhkan <color=orange>peralatan</color> "
+  - time: 4.025
+    text: "kerja yang sifatnya digunakan lebih lama, seperti komputer, printer, kursi
+      kerja, mesin fotokopi, dll.\u201D"
+  - time: 12.593
+    text: "\u201CPeralatan ini <color=orange>bukan beban</color>, melainkan <color=orange>aset
+      tetap / aset berumur panjang.</color>\u201D"

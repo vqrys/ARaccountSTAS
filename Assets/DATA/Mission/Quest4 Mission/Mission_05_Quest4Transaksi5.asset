@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
+  m_Name: Mission_05_Quest4Transaksi5
+  m_EditorClassIdentifier: 
+  missionId: Quest4Transaksi5
+  missionTitle: Quest 4 - Pembayaran Beban Gaji
+  missionDescription: Kerjakan Misinya.
+  mentorDialogue: {fileID: 0}
+  objectives:
+  - objectiveId: q4_m5_materi
+    objectiveName: Dengarkan Materi dari Admin Keuangan
+    useCounter: 0
+    targetCount: 0
+  - objectiveId: q4_m5_transaksi5
+    objectiveName: Kerjakan Quiz Card Transaksi 5
+    useCounter: 0
+    targetCount: 0
+  nextMission: {fileID: 11400000, guid: c5a1d95d7075529449f5fba4c57f20e2, type: 2}

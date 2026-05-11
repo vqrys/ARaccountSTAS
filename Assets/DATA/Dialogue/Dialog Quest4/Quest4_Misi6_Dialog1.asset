@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest4_Misi6_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 7f258ca2c7b88a943af8cf127cef7009, type: 3}
+  objectiveIdToComplete: q4_m6_materi
+  cues:
+  - time: 0
+    text: "\u201CPerusahaan jasa biasanya membutuhkan <color=orange>perlengkapan</color>
+      seperti kertas, "
+  - time: 3.955
+    text: "tinta printer, alat tulis, dan kebutuhan operasional kecil lainnya.\u201D"
+  - time: 8.812
+    text: "\u201CKarena perlengkapan masih akan <color=orange>dipakai di masa depan</color>, "
+  - time: 11.787
+    text: 'ia dicatat sebagai <color=orange>ASET</color>, bukan beban. '
+  - time: 14.682
+    text: "Beban baru terjadi ketika perlengkapan dipakai, bukan saat dibeli.\u201D"

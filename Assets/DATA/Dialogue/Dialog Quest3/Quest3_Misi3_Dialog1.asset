@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest3_Misi3_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 061ecb19b7a68c1468ba37f6789f8e18, type: 3}
+  objectiveIdToComplete: 
+  cues:
+  - time: 0
+    text: "\u201CSetelah dicatat di jurnal, transaksi tidak berhenti di sana."
+  - time: 3.488
+    text: Data tersebut dipindahkan ke Buku Besar untuk dilihat per akun
+  - time: 7.676
+    text: "\u2014 barulah tiap akun memiliki saldo.\u201D"

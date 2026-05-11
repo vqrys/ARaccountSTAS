@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
-  m_Name: Mission_03_Quest3DampakTransaksi
+  m_Name: Mission_03_Quest4Transaksi3
   m_EditorClassIdentifier: 
-  missionId: Mission_03_Quest3DampakTransaksi
-  missionTitle: Quest 2 - Dampak Transaksi
+  missionId: Quest4Transaksi3
+  missionTitle: Quest 4 - Pembayaran Beban Sewa
   missionDescription: Kerjakan Misinya.
   mentorDialogue: {fileID: 0}
   objectives:
-  - objectiveId: q2_arah_ahlitransaksi
-    objectiveName: Arahkan Camera ke Penjaga Timbangan Neraca
+  - objectiveId: q4_m3_materi
+    objectiveName: Dengarkan Materi dari Admin Keuangan
     useCounter: 0
-    targetCount: 1
-  - objectiveId: q2_quiz_ahlitransaksi
-    objectiveName: Dengarkan Materi dari Penjaga Timbangan Neraca
+    targetCount: 0
+  - objectiveId: q4_m3_transaksi3
+    objectiveName: Kerjakan Quiz Card Transaksi 3
     useCounter: 0
-    targetCount: 1
-  nextMission: {fileID: 0}
+    targetCount: 0
+  nextMission: {fileID: 11400000, guid: 67a57d21efb36e544ac81ca943dc9b3a, type: 2}

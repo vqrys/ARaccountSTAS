@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest4_Misi9_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: cde335a791353f445aa11af7d9ad43c1, type: 3}
+  objectiveIdToComplete: q4_m9_materi
+  cues:
+  - time: 0
+    text: "\u201CSekarang kebalikannya dari piutang. Jika perusahaan membeli sesuatu
+      tetapi <color=orange>belum membayar</color>, "
+  - time: 5.513
+    text: "maka muncul <color=orange>utang usaha</color>.\u201D"

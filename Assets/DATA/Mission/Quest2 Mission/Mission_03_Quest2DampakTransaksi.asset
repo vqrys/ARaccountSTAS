@@ -25,4 +25,4 @@ MonoBehaviour:
     objectiveName: Dengarkan Materi dari Penjaga Timbangan Neraca
     useCounter: 0
     targetCount: 1
-  nextMission: {fileID: 0}
+  nextMission: {fileID: 11400000, guid: db562a10077781941863feadf1e5c9bf, type: 2}

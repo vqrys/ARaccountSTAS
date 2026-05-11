@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="Quest4" size="678.000000 960.000000" />
     <ImageTarget name="Quest3" size="678.000000 960.000000" />
     <ImageTarget name="Quest2" size="678.000000 960.000000" />
     <ImageTarget name="Quest1" size="678.000000 960.000000" />

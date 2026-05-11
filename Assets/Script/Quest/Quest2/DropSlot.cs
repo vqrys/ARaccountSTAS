@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class DropSlot : MonoBehaviour, IDropHandler
 {
@@ -12,15 +13,27 @@ public class DropSlot : MonoBehaviour, IDropHandler
     [Tooltip("Masukkan target gambar yang akan berubah warna (Hijau/Merah). Bisa child/objek lain.")]
     public Image feedbackImage;
 
+    [Tooltip("(OPSIONAL) Masukkan objek kosong/panel sebagai tempat kartu menempel. Jika dikosongkan, kartu akan menempel tepat di objek DropSlot ini.")]
+    public Transform cardContainer;
+
+    [Header("Pengaturan Skala Kartu Drop")]
+    [Tooltip("Ubah ukuran skala kartu saat berhasil masuk ke slot ini. Default (1, 1, 1)")]
+    public Vector3 droppedCardScale = Vector3.one;
+
+    [Header("Event Drop")]
+    [Tooltip("Daftar event yang akan dijalankan saat kartu BERHASIL MASUK ke slot ini.")]
+    public UnityEvent onCardDropped;
+    
+    [Tooltip("Daftar event yang akan dijalankan saat kartu DILEPAS/DITARIK KELUAR dari slot ini.")]
+    public UnityEvent onCardRemoved; // Variabel baru untuk event saat dilepas
+
     private Color _originalColor;
     public DragCard CurrentCard { get; private set; }
 
     private void Awake()
     {
-        // Jika feedbackImage tidak diisi manual di inspector, coba cari di objek ini sendiri
         if (feedbackImage == null) feedbackImage = GetComponent<Image>();
         
-        // Simpan warna aslinya agar bisa di-reset kembali normal saat kartu ditarik
         if (feedbackImage != null) _originalColor = feedbackImage.color;
     }
 
@@ -30,51 +43,56 @@ public class DropSlot : MonoBehaviour, IDropHandler
         {
             DragCard card = eventData.pointerDrag.GetComponent<DragCard>();
 
-            // Hanya terima kartu jika slot sedang kosong
             if (card != null && CurrentCard == null)
             {
                 CurrentCard = card;
                 
-                // Jadikan kartu ini sebagai Child dari Slot Drop
-                card.transform.SetParent(this.transform, true);
+                Transform targetParent = cardContainer != null ? cardContainer : this.transform;
+                card.transform.SetParent(targetParent, true);
                 
                 RectTransform cardRect = card.GetComponent<RectTransform>();
                 
-                // PENTING: Paksa Anchor Kartu menjadi Center (Tengah)
-                // Ini mencegah kartu melenceng jauh saat snap
                 cardRect.anchorMin = new Vector2(0.5f, 0.5f);
                 cardRect.anchorMax = new Vector2(0.5f, 0.5f);
                 cardRect.pivot = new Vector2(0.5f, 0.5f);
 
-                // Animasi halus bergerak tepat ke tengah slot
                 cardRect.DOAnchorPos(Vector2.zero, 0.25f).SetEase(Ease.OutBack);
-                cardRect.localScale = Vector3.one; 
+                cardRect.DOScale(droppedCardScale, 0.25f).SetEase(Ease.OutBack); 
+
+                card.SetDroppedState(true);
+
+                // PANGGIL EVENT SAAT KARTU MASUK
+                onCardDropped?.Invoke();
             }
         }
     }
 
     private void Update()
     {
-        // Jika pemain berubah pikiran dan menarik kembali kartu keluar dari slot ini
-        if (CurrentCard != null && CurrentCard.transform.parent != this.transform)
+        // Tentukan tempat menempel yang seharusnya (Container atau DropSlot itu sendiri)
+        Transform targetParent = cardContainer != null ? cardContainer : this.transform;
+
+        // Jika kartu sudah ditarik keluar (parent-nya berubah)
+        if (CurrentCard != null && CurrentCard.transform.parent != targetParent)
         {
             CurrentCard = null;
-            ResetVisual(); // Kembalikan warna ke awal (bukan merah/hijau lagi)
+            ResetVisual(); 
+            
+            // PANGGIL EVENT SAAT KARTU DILEPAS
+            onCardRemoved?.Invoke();
         }
     }
 
-    // Fungsi dipanggil oleh Quest2QuizManager saat menekan "Periksa"
     public void SetVisualStatus(bool isCorrect, bool isEmpty)
     {
         if (feedbackImage == null) return;
 
         if (isEmpty) 
         {
-            feedbackImage.color = new Color(0.8f, 0.2f, 0.2f, 1f); // Merah jika belum diisi
+            feedbackImage.color = new Color(0.8f, 0.2f, 0.2f, 1f); 
         }
         else 
         {
-            // Hijau terang jika benar, Merah jika salah
             feedbackImage.color = isCorrect ? new Color(0.2f, 0.8f, 0.2f, 1f) : new Color(0.8f, 0.2f, 0.2f, 1f);
         }
     }

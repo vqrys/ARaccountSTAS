@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
+  m_Name: Mission_01_Quest4Transaksi1
+  m_EditorClassIdentifier: 
+  missionId: Quest4Transaksi1
+  missionTitle: Quest 4 - Setoran Modal Awal
+  missionDescription: Kerjakan Misinya.
+  mentorDialogue: {fileID: 0}
+  objectives:
+  - objectiveId: q4_m1_materi
+    objectiveName: Dengarkan Materi dari Admin Keuangan
+    useCounter: 0
+    targetCount: 0
+  - objectiveId: q4_m1_transaksi1
+    objectiveName: Kerjakan Quiz Card Transaksi 1
+    useCounter: 0
+    targetCount: 0
+  nextMission: {fileID: 11400000, guid: 9a0ad73dd0de0c04c80e863d35498897, type: 2}

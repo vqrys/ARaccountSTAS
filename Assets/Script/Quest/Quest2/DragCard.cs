@@ -9,6 +9,17 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [Header("Data Kartu")]
     public string accountType; // Contoh: "Aset", "Kewajiban", atau "Ekuitas"
 
+    [Header("Pengaturan Visual & Skala")]
+    [Tooltip("Ukuran skala kartu saat berada di dalam daftar (Panel Bawah)")]
+    public Vector3 panelScale = Vector3.one;
+    [Tooltip("Ukuran skala kartu saat sedang diseret (Drag)")]
+    public Vector3 dragScale = Vector3.one;
+    
+    [Tooltip("Centang jika ingin menyembunyikan gambar background kartu saat masuk ke slot")]
+    public bool hideImageOnDrop = false;
+    [Tooltip("Masukkan komponen Image (Background) dari kartu ini")]
+    public Image backgroundImage;
+
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Canvas mainCanvas;
@@ -16,6 +27,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // Variabel untuk mengembalikan kartu ke tempat asal
     private Transform startParent;
     private int startIndex; 
+    private Color _originalImageColor;
 
     public bool IsLocked { get; set; } = false;
 
@@ -28,6 +40,15 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         // Simpan rumah awal kartu beserta urutannya
         startParent = transform.parent;
         startIndex = transform.GetSiblingIndex();
+
+        // Simpan warna asli background jika ada
+        if (backgroundImage != null)
+        {
+            _originalImageColor = backgroundImage.color;
+        }
+
+        // Set skala awal agar sesuai dengan pengaturan di inspector
+        rectTransform.localScale = panelScale;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -41,6 +62,12 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+
+        // Ubah skala ke ukuran drag agar terlihat normal saat ditarik
+        rectTransform.DOScale(dragScale, 0.15f);
+
+        // Jika sebelumnya sempat di-drop lalu ditarik lagi, kembalikan warna gambar
+        SetDroppedState(false);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -71,5 +98,22 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         // Kembalikan ke CardPanel (Horizontal Layout Group akan otomatis merapikannya)
         transform.SetParent(startParent, false);
         transform.SetSiblingIndex(startIndex); // Pastikan urutannya kembali seperti semula
+        
+        // Kembalikan skala ke ukuran panel (Offset scale)
+        rectTransform.DOScale(panelScale, 0.25f);
+        
+        // Kembalikan warna ke semula (jika tadinya disembunyikan)
+        SetDroppedState(false);
+    }
+
+    // Fungsi dipanggil oleh DropSlot saat kartu masuk
+    public void SetDroppedState(bool isDropped)
+    {
+        if (hideImageOnDrop && backgroundImage != null)
+        {
+            Color c = _originalImageColor;
+            c.a = isDropped ? 0f : _originalImageColor.a;
+            backgroundImage.color = c;
+        }
     }
 }

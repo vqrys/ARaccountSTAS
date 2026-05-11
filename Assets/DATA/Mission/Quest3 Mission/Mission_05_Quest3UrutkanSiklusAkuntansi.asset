@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
-  m_Name: Mission_02_Quest3KeseimbanganKesamaan
+  m_Name: Mission_05_Quest3UrutkanSiklusAkuntansi
   m_EditorClassIdentifier: 
-  missionId: Mission_02_Quest3KeseimbanganKesamaan
-  missionTitle: Quest 2 - Menjaga Keseimbangan Neraca
+  missionId: Mission_05_Quest3UrutkanSiklusAkuntansi
+  missionTitle: Quest 3 - Urutkan Siklus Akuntansi
   missionDescription: Kerjakan Misinya.
   mentorDialogue: {fileID: 0}
   objectives:
-  - objectiveId: 'q2_arah_penjaga '
+  - objectiveId: q3_arah_mentor
     objectiveName: Arahkan Camera ke Penjaga Timbangan Neraca
     useCounter: 0
     targetCount: 1
-  - objectiveId: q2_quiz_dragndrop
-    objectiveName: 'Kerjakan Quiz Kartu '
+  - objectiveId: q3_card_mentor
+    objectiveName: Kerjakan Quiz Card dari Penjaga Timbangan Neraca
     useCounter: 0
     targetCount: 1
-  - objectiveId: q2_quiz_penjaga
-    objectiveName: Dengarkan Materi dan Quiz dari Penjaga Timbangan Neraca
+  - objectiveId: q3_coa_mentor
+    objectiveName: Quest 3 Tamat (Buka COA)
     useCounter: 0
     targetCount: 1
-  nextMission: {fileID: 11400000, guid: a9dd816c2d4a4844dbedb96c831d163a, type: 2}
+  nextMission: {fileID: 11400000, guid: ec4d12f558143ab40b704e183f8f1b34, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest4_Misi2_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: c01f4888a051cf945a37567311fd1878, type: 3}
+  objectiveIdToComplete: q4_m2_materi
+  cues:
+  - time: 0
+    text: "\u201CSetelah modal disetor, perusahaan jasa mulai menerima pendapatan
+      dari layanan yang diberikan. "
+  - time: 7.04
+    text: "Pendapatan yang diterima secara tunai akan menambah Kas.\u201D"

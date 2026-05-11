@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a679a0eb95735346b0fc4d1224e7b64, type: 3}
+  m_Name: Quest4_Misi5_Dialog1
+  m_EditorClassIdentifier: 
+  voiceClip: {fileID: 8300000, guid: 6649b47f0ad6e664280b8bf668026cc7, type: 3}
+  objectiveIdToComplete: q4_m5_materi
+  cues:
+  - time: 0
+    text: "\u201CPada perusahaan jasa, gaji karyawan adalah salah satu "
+  - time: 3.174
+    text: "biaya rutin yang harus dicatat sebagai <color=orange>beban gaji.</color>\u201D "
+  - time: 6.347
+    text: "\u201CKarena pembayarannya dilakukan tunai, maka akun Kas kembali berkurang.\u201D "

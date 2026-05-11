@@ -17,12 +17,12 @@ MonoBehaviour:
   missionDescription: Kerjakan Misinya.
   mentorDialogue: {fileID: 0}
   objectives:
-  - objectiveId: q2_arah_mentor
-    objectiveName: Arahkan Camera ke Mentor
+  - objectiveId: q3_arah_petugasoffice
+    objectiveName: Arahkan Camera ke Petugas Front Office
     useCounter: 0
     targetCount: 1
-  - objectiveId: q2_materi_mentor
-    objectiveName: Dengarkan Materi dari Mentor
+  - objectiveId: q3_card_petugasoffice
+    objectiveName: Kerjakan Quiz Card dari Petugas Front Office
     useCounter: 0
     targetCount: 1
-  nextMission: {fileID: 11400000, guid: 747dfdbfc38d8b348b48d5dbde8e9f23, type: 2}
+  nextMission: {fileID: 11400000, guid: bbd633055f1a86f459d1938f2b94b18a, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aece7e5b7f86d540a87a5e00161f8dd, type: 3}
+  m_Name: Mission_03_Quest3TahapBukuBesar
+  m_EditorClassIdentifier: 
+  missionId: 'Mission_04_Quest3TahapBukuBesar '
+  missionTitle: Quest 3 -  Tahap Buku Besar (Overview)
+  missionDescription: Kerjakan Misinya.
+  mentorDialogue: {fileID: 0}
+  objectives:
+  - objectiveId: q3_arah_akuntanpembukuan
+    objectiveName: Arahkan Camera ke Akuntan Pembukuan
+    useCounter: 0
+    targetCount: 1
+  - objectiveId: q3_card_akuntanpembukuan
+    objectiveName: Kerjakan Quiz Card dari Akuntan Pembukuan
+    useCounter: 0
+    targetCount: 1
+  nextMission: {fileID: 11400000, guid: f12587d0460012d4fbc563bfc252e918, type: 2}
